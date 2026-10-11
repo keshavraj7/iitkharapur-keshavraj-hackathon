@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pydantic-settings
+httpx
+feedparser
+pandas
+numpy
+pytest
+ruff
