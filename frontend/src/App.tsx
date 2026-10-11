@@ -6,6 +6,7 @@ import {
   Clock3,
   Filter,
   Gauge,
+  Play,
   RefreshCw,
   Search,
   ShieldAlert,
@@ -68,7 +69,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
-
+const [demoLoading, setDemoLoading] = useState(false);
+const [notice, setNotice] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [eventFilter, setEventFilter] = useState("All events");
   const [sentimentFilter, setSentimentFilter] = useState("All sentiment");
@@ -92,7 +94,83 @@ function App() {
       if (showLoader) setLoading(false);
     }
   }, []);
+const runDemoAnalysis = useCallback(async () => {
+  setDemoLoading(true);
+  setError(null);
+  setNotice(null);
 
+  const documents = [
+    {
+      document_id: "demo-credit-001",
+      source_type: "news",
+      source_name: "Synthetic Demo",
+      title: "JPMorgan reports losses after a debt default",
+      text: "JPMorgan reports increasing losses following a debt default.",
+    },
+    {
+      document_id: "demo-earnings-001",
+      source_type: "news",
+      source_name: "Synthetic Demo",
+      title: "NVIDIA reports record revenue growth",
+      text: "NVIDIA reports record revenue growth and strong earnings.",
+    },
+    {
+      document_id: "demo-macro-001",
+      source_type: "news",
+      source_name: "Synthetic Demo",
+      title: "Inflation accelerates amid higher interest rates",
+      text: "Inflation rises, increasing pressure on the economy and interest rates.",
+    },
+    {
+      document_id: "demo-cyber-001",
+      source_type: "news",
+      source_name: "Synthetic Demo",
+      title: "Company reports data breach after ransomware attack",
+      text: "A company confirms a data breach and operational disruption.",
+    },
+    {
+      document_id: "demo-supply-001",
+      source_type: "news",
+      source_name: "Synthetic Demo",
+      title: "Oil prices plunge amid supply chain disruption",
+      text: "Oil prices plunge after shipping delays disrupt commodity supply.",
+    },
+  ];
+
+  try {
+    const response = await fetch(
+      "http://127.0.0.1:8000/api/v1/signals/analyze",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ documents }),
+      }
+    );
+
+    if (!response.ok) {
+      const details = await response.text();
+      throw new Error(`Analysis failed (${response.status}): ${details}`);
+    }
+
+    const generated = (await response.json()) as RiskSignal[];
+
+    setSearch("");
+    setEventFilter("All events");
+    setSentimentFilter("All sentiment");
+
+    await loadSignals(false);
+
+    setNotice(
+      `Demo analysis completed: ${generated.length} documents processed.`
+    );
+  } catch (err) {
+    setError(
+      err instanceof Error ? err.message : "Demo analysis failed."
+    );
+  } finally {
+    setDemoLoading(false);
+  }
+}, [loadSignals]);
   useEffect(() => {
     void loadSignals(true);
 
@@ -190,15 +268,26 @@ function App() {
             structured, actionable risk intelligence.
           </p>
         </div>
+        
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+  <button
+    className="refresh-button"
+    onClick={() => void loadSignals(false)}
+    disabled={loading || demoLoading}
+  >
+    <RefreshCw size={16} />
+    Refresh signals
+  </button>
 
-        <button
-          className="refresh-button"
-          onClick={() => void loadSignals(false)}
-          disabled={loading}
-        >
-          <RefreshCw size={16} />
-          Refresh signals
-        </button>
+  <button
+    className="refresh-button"
+    onClick={() => void runDemoAnalysis()}
+    disabled={demoLoading}
+  >
+    <Play size={16} />
+    {demoLoading ? "Analyzing..." : "Run demo analysis"}
+  </button>
+</div>
       </section>
 
       {error && (
@@ -211,7 +300,21 @@ function App() {
           </div>
         </div>
       )}
-
+  {notice && (
+  <div
+    role="status"
+    style={{
+      marginTop: 16,
+      padding: "12px 16px",
+      borderRadius: 12,
+      background: "#e8f7ef",
+      color: "#136c43",
+      border: "1px solid #b7e4cd",
+    }}
+  >
+    {notice}
+  </div>
+)}
       <section className="metrics-grid">
         <StatCard
           label="TOTAL SIGNALS"

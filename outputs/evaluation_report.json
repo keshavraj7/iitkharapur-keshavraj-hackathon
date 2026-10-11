@@ -1,0 +1,35 @@
+{
+  "dataset_name": "FINRISK Synthetic Evaluation Set",
+  "dataset_version": "1.0",
+  "source": "Synthetic examples authored for development and testing",
+  "evaluation_warning": "Synthetic development set; examples are designed around the baseline rules. Results are not evidence of real-world generalization or calibrated confidence.",
+  "sample_count": 20,
+  "event_classification": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "count": 20
+  },
+  "sentiment_classification": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "count": 20
+  },
+  "event_label_counts": {
+    "Geopolitical": 2,
+    "Macroeconomic": 2,
+    "Credit Event": 2,
+    "M&A": 2,
+    "Earnings": 2,
+    "Regulatory/Legal": 2,
+    "Product/Tech": 2,
+    "Cyber/Operational": 2,
+    "Supply Chain/Commodity": 2,
+    "Other": 2
+  },
+  "sentiment_label_counts": {
+    "negative": 8,
+    "neutral": 8,
+    "positive": 4
+  },
+  "errors": []
+}

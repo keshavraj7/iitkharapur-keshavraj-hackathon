@@ -59,3 +59,4 @@ class RiskSignal(BaseModel):
     novelty: float = Field(ge=0, le=1)
     rationale: str
     model_versions: dict[str, str] = Field(default_factory=dict)
+    headline: str | None = None

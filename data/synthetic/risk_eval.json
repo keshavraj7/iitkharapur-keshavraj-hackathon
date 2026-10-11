@@ -1,0 +1,128 @@
+﻿{
+  "dataset_name": "FINRISK Synthetic Evaluation Set",
+  "version": "1.0",
+  "source": "Synthetic examples authored for development and testing",
+  "labeling_note": "Labels are illustrative and designed to test the keyword baseline. Results must not be presented as performance on real-world financial news.",
+  "items": [
+    {
+      "id": "E01",
+      "text": "War intensifies near borders as sanctions expand.",
+      "expected_event": "Geopolitical",
+      "expected_sentiment": "negative"
+    },
+    {
+      "id": "E02",
+      "text": "Officials discuss geopolitical tensions.",
+      "expected_event": "Geopolitical",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "id": "E03",
+      "text": "Inflation rises as recession fears grow.",
+      "expected_event": "Macroeconomic",
+      "expected_sentiment": "negative"
+    },
+    {
+      "id": "E04",
+      "text": "Central bank reviews monetary policy after a GDP update.",
+      "expected_event": "Macroeconomic",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "id": "E05",
+      "text": "Bankruptcy filing follows a missed payment and debt default.",
+      "expected_event": "Credit Event",
+      "expected_sentiment": "negative"
+    },
+    {
+      "id": "E06",
+      "text": "Corporate insolvency raises concerns about debt distress.",
+      "expected_event": "Credit Event",
+      "expected_sentiment": "negative"
+    },
+    {
+      "id": "E07",
+      "text": "Company announces acquisition of a regional competitor.",
+      "expected_event": "M&A",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "id": "E08",
+      "text": "Merger drives strong growth and gains for both companies.",
+      "expected_event": "M&A",
+      "expected_sentiment": "positive"
+    },
+    {
+      "id": "E09",
+      "text": "NVIDIA reports record revenue growth and strong profits.",
+      "expected_event": "Earnings",
+      "expected_sentiment": "positive"
+    },
+    {
+      "id": "E10",
+      "text": "Company issues a profit warning after losses and an earnings shortfall.",
+      "expected_event": "Earnings",
+      "expected_sentiment": "negative"
+    },
+    {
+      "id": "E11",
+      "text": "Regulator opens an investigation after a company is fined.",
+      "expected_event": "Regulatory/Legal",
+      "expected_sentiment": "negative"
+    },
+    {
+      "id": "E12",
+      "text": "Court reviews a new antitrust filing.",
+      "expected_event": "Regulatory/Legal",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "id": "E13",
+      "text": "NVIDIA announces a product launch for its software platform.",
+      "expected_event": "Product/Tech",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "id": "E14",
+      "text": "An AI model launch delivers strong performance and growth.",
+      "expected_event": "Product/Tech",
+      "expected_sentiment": "positive"
+    },
+    {
+      "id": "E15",
+      "text": "Company confirms a ransomware attack and data breach.",
+      "expected_event": "Cyber/Operational",
+      "expected_sentiment": "negative"
+    },
+    {
+      "id": "E16",
+      "text": "Company reports a planned service outage test.",
+      "expected_event": "Cyber/Operational",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "id": "E17",
+      "text": "Shipping disruption causes a commodity shortage and declines in oil production.",
+      "expected_event": "Supply Chain/Commodity",
+      "expected_sentiment": "negative"
+    },
+    {
+      "id": "E18",
+      "text": "OPEC discusses natural gas and commodity prices.",
+      "expected_event": "Supply Chain/Commodity",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "id": "E19",
+      "text": "Company schedules a regional office opening.",
+      "expected_event": "Other",
+      "expected_sentiment": "neutral"
+    },
+    {
+      "id": "E20",
+      "text": "Company reports strong and robust operational performance.",
+      "expected_event": "Other",
+      "expected_sentiment": "positive"
+    }
+  ]
+}
