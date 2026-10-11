@@ -12,7 +12,7 @@ import {
   ShieldAlert,
   Wifi,
 } from "lucide-react";
-
+import PortfolioLab from "./components/PortfolioLab";
 import { getSignals } from "./api/signals";
 import type { RiskSignal } from "./types/signal";
 
@@ -558,7 +558,7 @@ const runDemoAnalysis = useCallback(async () => {
           <span>Sorted by API insertion order</span>
         </footer>
       </section>
-
+        <PortfolioLab />
       <footer className="app-footer">
         <span>FINRISK · Financial Risk Intelligence</span>
         <span>

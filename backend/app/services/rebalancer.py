@@ -258,6 +258,9 @@ def calculate_rebalance(
         )
 
     fixed = dict(override_indices)
+
+    if mandatory_sold > SUM_TOLERANCE and cash_indices:
+        fixed[cash_indices[0]] = mandatory[cash_indices[0]]
     first_target = _project_to_bounds(preferences, lower, upper, fixed)
 
     # Freeze ordinary positions whose proposed change is below the no-trade band.

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import health, signals, ingest,rebalancer
+from app.api.routes import health, signals, ingest,rebalancer,stress_test
 
 app = FastAPI(
     title="Financial Risk Intelligence",
@@ -21,3 +21,4 @@ app.include_router(health.router)
 app.include_router(signals.router, prefix="/api/v1")
 app.include_router(ingest.router, prefix="/api/v1")
 app.include_router(rebalancer.router, prefix="/api/v1")
+app.include_router(stress_test.router, prefix="/api/v1")

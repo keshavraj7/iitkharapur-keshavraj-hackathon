@@ -1,0 +1,141 @@
+{
+  "generated_at_utc": "2026-10-11T13:54:31.188999+00:00",
+  "datasets": [
+    {
+      "repo_id": "zeroshot/twitter-financial-news-sentiment",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "data\\raw\\benchmarks\\twitter_sentiment_train.csv",
+          "split": "train",
+          "rows": 9543
+        },
+        {
+          "path": "data\\raw\\benchmarks\\twitter_sentiment_validation.csv",
+          "split": "validation",
+          "rows": 2388
+        }
+      ]
+    },
+    {
+      "repo_id": "zeroshot/twitter-financial-news-topic",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "data\\raw\\benchmarks\\twitter_topic_train.csv",
+          "split": "train",
+          "rows": 16990
+        },
+        {
+          "path": "data\\raw\\benchmarks\\twitter_topic_validation.csv",
+          "split": "validation",
+          "rows": 4117
+        }
+      ]
+    },
+    {
+      "repo_id": "takala/financial_phrasebank",
+      "configuration": "sentences_75agree",
+      "license": "CC BY-NC-SA 3.0",
+      "path": "data\\cache\\external\\financial_phrasebank_75agree.csv",
+      "rows": 3453,
+      "redistribute": false
+    }
+  ],
+  "market_prices": {
+    "source": "Yahoo Finance through yfinance",
+    "price_basis": "auto_adjust=True; daily adjusted OHLC close field",
+    "start_date": "2018-01-01",
+    "end_date_exclusive": "2026-10-12",
+    "downloaded_at_utc": "2026-10-11T13:56:37.155563+00:00",
+    "tickers_requested": [
+      "SPY",
+      "^VIX",
+      "^TNX",
+      "HYG",
+      "LQD",
+      "CL=F",
+      "AAPL",
+      "MSFT",
+      "AMZN",
+      "GOOGL",
+      "TSLA",
+      "NVDA",
+      "META",
+      "JPM",
+      "BAC",
+      "WFC",
+      "GS",
+      "MS",
+      "XOM",
+      "CVX",
+      "WMT",
+      "COST",
+      "KO",
+      "PFE",
+      "INTC",
+      "AMD",
+      "NFLX",
+      "ORCL",
+      "CSCO",
+      "CAT",
+      "BA",
+      "DIS"
+    ],
+    "tickers_downloaded": [
+      "SPY",
+      "^VIX",
+      "^TNX",
+      "HYG",
+      "LQD",
+      "CL=F",
+      "AAPL",
+      "MSFT",
+      "AMZN",
+      "GOOGL",
+      "TSLA",
+      "NVDA",
+      "META",
+      "JPM",
+      "BAC",
+      "WFC",
+      "GS",
+      "MS",
+      "XOM",
+      "CVX",
+      "WMT",
+      "COST",
+      "KO",
+      "PFE",
+      "INTC",
+      "AMD",
+      "NFLX",
+      "ORCL",
+      "CSCO",
+      "CAT",
+      "BA",
+      "DIS"
+    ],
+    "tickers_failed": [],
+    "rows": 2209
+  },
+  "bond_holdings": {
+    "source": "iShares official holdings exports",
+    "files": [
+      {
+        "symbol": "LQD",
+        "path": "data\\cache\\ishares\\lqd_holdings.csv",
+        "rows": 3169,
+        "downloaded_at_utc": "2026-10-11T13:56:39.451554+00:00"
+      },
+      {
+        "symbol": "HYG",
+        "path": "data\\cache\\ishares\\hyg_holdings.csv",
+        "rows": 1340,
+        "downloaded_at_utc": "2026-10-11T13:56:41.158748+00:00"
+      }
+    ]
+  },
+  "optional_sources": [],
+  "errors": []
+}

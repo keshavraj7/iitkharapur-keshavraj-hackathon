@@ -24,3 +24,6 @@ frontend/dist/
 
 # Local runtime database
 backend/app/storage/risk_signals.sqlite3
+
+# Downloaded research data and local caches
+data/cache/

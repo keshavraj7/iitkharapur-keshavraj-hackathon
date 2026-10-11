@@ -1,0 +1,22 @@
+﻿{
+  "Analyst Update": "Other",
+  "Fed | Central Banks": "Macroeconomic",
+  "Company | Product News": "Product/Tech",
+  "Treasuries | Corporate Debt": "Credit Event",
+  "Dividend": "Other",
+  "Earnings": "Earnings",
+  "Energy | Oil": "Supply Chain/Commodity",
+  "Financials": "Other",
+  "Currencies": "Macroeconomic",
+  "General News | Opinion": "Other",
+  "Gold | Metals | Materials": "Supply Chain/Commodity",
+  "IPO": "Other",
+  "Legal | Regulation": "Regulatory/Legal",
+  "M&A | Investments": "M&A",
+  "Macro": "Macroeconomic",
+  "Markets": "Other",
+  "Politics": "Geopolitical",
+  "Personnel Change": "Other",
+  "Stock Commentary": "Other",
+  "Stock Movement": "Other"
+}

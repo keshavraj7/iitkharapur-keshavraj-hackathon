@@ -1,0 +1,222 @@
+{
+  "task": "Financial sentiment model comparison",
+  "generated_at_utc": "2026-10-11T14:19:26.932231+00:00",
+  "label_order": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "dataset_sizes": {
+    "twitter_validation": 2388
+  },
+  "results": [
+    {
+      "model_id": "ProsusAI/finbert",
+      "dataset": "twitter_validation",
+      "note": "Cross-domain evaluation on the Twitter benchmark validation split; check dataset provenance for potential overlap.",
+      "sample_count": 2388,
+      "accuracy": 0.7252931323283082,
+      "macro_f1": 0.6681732301000801,
+      "weighted_f1": 0.7328700943132527,
+      "macro_precision": 0.6524121895655668,
+      "macro_recall": 0.7049226881691477,
+      "class_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "confusion_matrix": [
+        [
+          264,
+          71,
+          12
+        ],
+        [
+          213,
+          1184,
+          169
+        ],
+        [
+          58,
+          133,
+          284
+        ]
+      ],
+      "classification_report": {
+        "negative": {
+          "precision": 0.4934579439252336,
+          "recall": 0.760806916426513,
+          "f1-score": 0.5986394557823129,
+          "support": 347.0
+        },
+        "neutral": {
+          "precision": 0.8530259365994236,
+          "recall": 0.756066411238825,
+          "f1-score": 0.8016249153689912,
+          "support": 1566.0
+        },
+        "positive": {
+          "precision": 0.610752688172043,
+          "recall": 0.5978947368421053,
+          "f1-score": 0.6042553191489362,
+          "support": 475.0
+        },
+        "accuracy": 0.7252931323283082,
+        "macro avg": {
+          "precision": 0.6524121895655668,
+          "recall": 0.7049226881691477,
+          "f1-score": 0.6681732301000801,
+          "support": 2388.0
+        },
+        "weighted avg": {
+          "precision": 0.7525862856526272,
+          "recall": 0.7252931323283082,
+          "f1-score": 0.7328700943132527,
+          "support": 2388.0
+        }
+      },
+      "inference_seconds": 174.99,
+      "documents_per_second": 13.65,
+      "predictions_file": "outputs\\sentiment\\predictions\\twitter_validation_finbert.csv"
+    },
+    {
+      "model_id": "ProsusAI/finbert",
+      "dataset": "phrasebank_75agree",
+      "note": "Sanity check only. ProsusAI/finbert was fine-tuned on Financial PhraseBank, so this is not an independent unseen test result.",
+      "sample_count": 3453,
+      "accuracy": 0.9472922096727483,
+      "macro_f1": 0.9364610645058223,
+      "weighted_f1": 0.947969708200476,
+      "macro_precision": 0.9164582277535919,
+      "macro_recall": 0.9606479647629591,
+      "class_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "confusion_matrix": [
+        [
+          413,
+          2,
+          5
+        ],
+        [
+          52,
+          2001,
+          93
+        ],
+        [
+          15,
+          15,
+          857
+        ]
+      ],
+      "classification_report": {
+        "negative": {
+          "precision": 0.8604166666666667,
+          "recall": 0.9833333333333333,
+          "f1-score": 0.9177777777777778,
+          "support": 420.0
+        },
+        "neutral": {
+          "precision": 0.9915758176412289,
+          "recall": 0.9324324324324325,
+          "f1-score": 0.9610951008645533,
+          "support": 2146.0
+        },
+        "positive": {
+          "precision": 0.8973821989528796,
+          "recall": 0.9661781285231116,
+          "f1-score": 0.9305103148751357,
+          "support": 887.0
+        },
+        "accuracy": 0.9472922096727483,
+        "macro avg": {
+          "precision": 0.9164582277535919,
+          "recall": 0.9606479647629591,
+          "f1-score": 0.9364610645058223,
+          "support": 3453.0
+        },
+        "weighted avg": {
+          "precision": 0.9514262134750309,
+          "recall": 0.9472922096727483,
+          "f1-score": 0.947969708200476,
+          "support": 3453.0
+        }
+      },
+      "inference_seconds": 287.598,
+      "documents_per_second": 12.01,
+      "predictions_file": "outputs\\sentiment\\predictions\\phrasebank_75agree_finbert.csv"
+    },
+    {
+      "model_id": "StephanAkkerman/FinTwitBERT-sentiment",
+      "dataset": "twitter_validation",
+      "note": "Financial-tweet sentiment model evaluated on the supplied validation split; verify source overlap before claiming fully independent generalization.",
+      "sample_count": 2388,
+      "accuracy": 0.8224455611390284,
+      "macro_f1": 0.7946426698285277,
+      "weighted_f1": 0.8282899189266373,
+      "macro_precision": 0.7615399536049896,
+      "macro_recall": 0.8531220549007789,
+      "class_labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "confusion_matrix": [
+        [
+          319,
+          18,
+          10
+        ],
+        [
+          129,
+          1243,
+          194
+        ],
+        [
+          29,
+          44,
+          402
+        ]
+      ],
+      "classification_report": {
+        "negative": {
+          "precision": 0.6687631027253669,
+          "recall": 0.9193083573487032,
+          "f1-score": 0.7742718446601942,
+          "support": 347.0
+        },
+        "neutral": {
+          "precision": 0.9524904214559387,
+          "recall": 0.7937420178799489,
+          "f1-score": 0.8659003831417624,
+          "support": 1566.0
+        },
+        "positive": {
+          "precision": 0.6633663366336634,
+          "recall": 0.8463157894736842,
+          "f1-score": 0.7437557816836263,
+          "support": 475.0
+        },
+        "accuracy": 0.8224455611390284,
+        "macro avg": {
+          "precision": 0.7615399536049896,
+          "recall": 0.8531220549007789,
+          "f1-score": 0.7946426698285277,
+          "support": 2388.0
+        },
+        "weighted avg": {
+          "precision": 0.8537520127917472,
+          "recall": 0.8224455611390284,
+          "f1-score": 0.8282899189266373,
+          "support": 2388.0
+        }
+      },
+      "inference_seconds": 202.738,
+      "documents_per_second": 11.78,
+      "predictions_file": "outputs\\sentiment\\predictions\\twitter_validation_FinTwitBERT-sentiment.csv"
+    }
+  ],
+  "interpretation": "Compare FinBERT and FinTwitBERT on the same Twitter validation examples. Financial PhraseBank results are a sanity check, not independent evaluation because FinBERT was fine-tuned on that dataset. Do not infer market-prediction ability from sentiment classification metrics."
+}

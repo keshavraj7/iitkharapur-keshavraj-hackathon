@@ -1,4 +1,4 @@
-fastapi
+﻿fastapi
 uvicorn[standard]
 pydantic-settings
 httpx
@@ -7,3 +7,12 @@ pandas
 numpy
 pytest
 ruff
+datasets>=3.3,<4.0
+transformers>=4.45,<5.0
+torch>=2.4
+scikit-learn>=1.5
+yfinance>=0.2.65
+pyarrow>=17
+requests>=2.32
+huggingface_hub>=0.26,<1.0
+
