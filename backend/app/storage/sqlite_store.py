@@ -74,7 +74,24 @@ def insert_signal(signal: RiskSignal) -> bool:
 
         return cursor.rowcount == 1
 
-
+def upsert_signal(signal: RiskSignal) -> None:
+    """Insert a signal or refresh its payload when its ID already exists."""
+    with _connect() as connection:
+        connection.execute(
+            """
+            INSERT INTO risk_signals (signal_id, event_time, payload)
+            VALUES (?, ?, ?)
+            ON CONFLICT(signal_id) DO UPDATE SET
+                event_time = excluded.event_time,
+                payload = excluded.payload
+            """,
+            (
+                signal.signal_id,
+                signal.event_time.isoformat(),
+                _serialize(signal),
+            ),
+        )
+        
 def get_signal(signal_id: str) -> RiskSignal | None:
     with _connect() as connection:
         row = connection.execute(

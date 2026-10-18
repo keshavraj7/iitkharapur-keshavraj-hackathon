@@ -1,0 +1,43 @@
+{
+  "generated_at_utc": "2026-10-11T15:00:19.258064+00:00",
+  "inputs": [
+    "data\\cache\\fnspid\\Stock_news\\All_external.jsonl",
+    "data\\cache\\fnspid\\Stock_news\\nasdaq_exteral_data.jsonl"
+  ],
+  "market_prices": "data/cache/market/adjusted_close.parquet or .csv",
+  "benchmark": "SPY",
+  "assumed_market_close": "16:00 America/New_York",
+  "label_definitions": {
+    "event_window_return_pct": "Asset close return from the previous available session close to the first session close strictly after publication.",
+    "event_window_abnormal_return_pct": "Event-window asset return minus SPY return over the same sessions.",
+    "forward_1d_return_pct": "Asset close-to-close return from the event session to the following available session.",
+    "forward_1d_abnormal_return_pct": "Forward asset return minus SPY return over the same sessions."
+  },
+  "stats": {
+    "malformed_json_lines": 2,
+    "rows_read": 1391852,
+    "rows_written": 31779,
+    "invalid_timestamp_rows": 0,
+    "missing_ticker_rows": 26,
+    "unmatched_ticker_rows": 1344329,
+    "rows_without_full_label": 15744
+  },
+  "per_source": {
+    "All_external.jsonl": {
+      "rows_read": 1143957,
+      "rows_written": 10599
+    },
+    "nasdaq_exteral_data.jsonl": {
+      "rows_read": 247895,
+      "rows_written": 21180
+    }
+  },
+  "output": "data\\processed\\historical_event_returns.parquet",
+  "output_rows": 31779,
+  "limitations": [
+    "Daily close timestamps are approximated as 16:00 America/New_York.",
+    "Abnormal return is a simple SPY-relative return, not a causal estimate.",
+    "Headlines may be duplicated across sources and need deduplication before model fitting.",
+    "Ticker coverage is restricted to assets present in the downloaded adjusted-price table."
+  ]
+}

@@ -13,6 +13,7 @@ from app.storage.sqlite_store import (
     get_signal,
     insert_signal,
     list_signals,
+    upsert_signal,
 )
 
 
@@ -30,7 +31,7 @@ def _process_documents(
 
     for document in documents:
         generated = generate_risk_signal(document)
-        insert_signal(generated)
+        upsert_signal(generated)
 
         stored = get_signal(generated.signal_id)
         generated_signals.append(stored or generated)
